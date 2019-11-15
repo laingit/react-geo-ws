@@ -33,10 +33,12 @@ const MappifiedMeasureButton = mappify(MeasureButton);
 const MappifiedLayerTree = mappify(LayerTree);
 const Map = mappify(onDropAware(MapComponent));
 
+/*
 const layer = new OlLayerTile({
   source: new OlSourceOsm(),
   name: "OSM"
 });
+*/
 
 const topoLayer = new OlLayerTile({
   title: 'OSM',
@@ -47,6 +49,30 @@ const topoLayer = new OlLayerTile({
   })
 });   
 
+
+
+
+const fiumi = new VectorLayer({
+  name: 'fiumi',
+  source: new OlSourceVector({
+    url:
+    "http://a-alai:8080/geoserver/Arpas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Arpas:ADIS_V001_01_corpi_idrici_CF_gb&maxFeatures=2000&outputFormat=application%2Fjson&srsName=EPSG:4326",
+    format: new OlFormatGeoJSON(),
+    crossOrigin: "anonymous"
+  })
+});
+
+
+
+const bacini = new VectorLayer({
+  name: 'bacini',
+  source: new OlSourceVector({
+    url:
+      "http://a-alai:8080/geoserver/Arpas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Arpas:CRS4_V001_01_BacIDRO_rev5_gb&maxFeatures=2000&outputFormat=application%2Fjson&srsName=EPSG:4326",
+    format: new OlFormatGeoJSON(),
+    crossOrigin: "anonymous"
+  })
+});
 
 
 const idrometri = new VectorLayer({
@@ -78,7 +104,9 @@ const layerGroup = new OlLayerGroup({
   name: "Arpas",
   layers: [
     litologia,
-    idrometri
+    idrometri,
+    bacini,
+    fiumi
   ]
 });
 
