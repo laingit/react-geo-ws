@@ -8,7 +8,7 @@ import "./react-geo.css";
 import OlMap from "ol/Map";
 import OlView from "ol/View";
 import OlLayerTile from "ol/layer/Tile";
-import OlSourceOsm from "ol/source/OSM";
+// import OlSourceOsm from "ol/source/OSM";
 import OlSourceXYZ from "ol/source/XYZ";
 import OlSourceVector from "ol/source/Vector"
 import OlFormatGeoJSON from "ol/format/GeoJSON"
@@ -131,7 +131,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>ARPAS</h1>
+      
         <MapProvider map={map}>
           <Map />
           <Drawer
