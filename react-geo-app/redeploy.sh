@@ -1,4 +1,5 @@
 # ./redeploy.sh
+npm run build
 rm -rf /u/_docker/arpas_nginx_html/react-geo-app/
 mkdir /u/_docker/arpas_nginx_html/react-geo-app/
 cp -vR ./build/* /u/_docker/arpas_nginx_html/react-geo-app/
